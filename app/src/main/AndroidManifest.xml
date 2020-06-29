@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.cgisca.godotadmoblibrary">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <meta-data
+            android:name="org.godotengine.plugin.v1.GodotAndroidAdMob"
+            android:value="io.cgisca.godotadmoblibrary.AdmobGodot" />
+
+    </application>
+
+</manifest>
