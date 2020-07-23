@@ -1,0 +1,9 @@
+[config]
+
+name="GodotAndroidAdMob"
+binary_type="local"
+binary="GodotAndroidAdMob.release.aar"
+
+[dependencies]
+
+remote=["com.google.android.gms:play-services-ads:19.2.0", "com.google.android.ads.consent:consent-library:1.0.8"]

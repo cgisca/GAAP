@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://library/admob/AdMobAndroid.gd" type="Script" id=2]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 70
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowBannerAdButton" type="Button" parent="VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 200, 120 )
+text = "Show banner ad"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowInterstitialAdButton" type="Button" parent="VBoxContainer"]
+margin_top = 190.0
+margin_right = 600.0
+margin_bottom = 310.0
+rect_min_size = Vector2( 0, 120 )
+text = "Show Interstitial Ad"
+
+[node name="ShowRewardedAdButton" type="Button" parent="VBoxContainer"]
+margin_top = 380.0
+margin_right = 600.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 0, 120 )
+text = "Show RewardedAd"
+
+[node name="ShowConsentButton" type="Button" parent="VBoxContainer"]
+margin_top = 570.0
+margin_right = 600.0
+margin_bottom = 690.0
+rect_min_size = Vector2( 0, 120 )
+text = "Show consent info"
+
+[node name="Blocker" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Blocker"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.0
+margin_top = -15.5
+margin_right = 58.0
+margin_bottom = 15.5
+text = "Initializing AdMob
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AdMobAndroid" type="Node" parent="."]
+script = ExtResource( 2 )
+init_type = 2
+privacy_policy_url = "https://validurl.com"
+test_consent_is_eea_geography = true
+banner_ad_unit_id = "ca-app-pub-3940256099942544/6300978111"
+interstitial_ad_unit_id = "ca-app-pub-3940256099942544/1033173712"
+[connection signal="pressed" from="VBoxContainer/ShowBannerAdButton" to="." method="_on_ShowBannerAdButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ShowInterstitialAdButton" to="." method="_on_ShowInterstitialAdButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ShowRewardedAdButton" to="." method="_on_ShowRewardedAdButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ShowConsentButton" to="." method="_on_ShowConsentButton_pressed"]
+[connection signal="on_ads_initialized" from="AdMobAndroid" to="." method="_on_AdMobAndroid_on_ads_initialized"]
+[connection signal="on_consent_ads_allowed" from="AdMobAndroid" to="." method="_on_AdMobAndroid_on_consent_ads_allowed"]
+[connection signal="on_consent_eea_user_unkown" from="AdMobAndroid" to="." method="_on_AdMobAndroid_on_consent_eea_user_unkown"]
+[connection signal="on_consent_form_error" from="AdMobAndroid" to="." method="_on_AdMobAndroid_on_consent_form_error"]
+[connection signal="on_consent_form_loaded" from="AdMobAndroid" to="." method="_on_AdMobAndroid_on_consent_form_loaded"]
+[connection signal="on_consent_form_opened" from="AdMobAndroid" to="." method="_on_AdMobAndroid_on_consent_form_opened"]
+[connection signal="on_consent_info_failed_to_update" from="AdMobAndroid" to="." method="_on_AdMobAndroid_on_consent_info_failed_to_update"]
+[connection signal="on_rewarded_ad_loaded" from="AdMobAndroid" to="." method="_on_AdMobAndroid_on_rewarded_ad_loaded"]
